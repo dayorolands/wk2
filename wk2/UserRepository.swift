@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+// Repository protocol to define the business logic required to fetch data from a data source
 protocol UserRepository {
-    func fetchUsers()  -> [User]
+    func fetchUsers()  -> Result<[User], Error>
 }

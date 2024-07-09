@@ -8,10 +8,10 @@
 import Foundation
 
 //Viewmodel implementation connecting the repository to the view.
-
 @MainActor
 class UserViewModel: ObservableObject {
     @Published var users : [User] = []
+    @Published var errorMessage: String?
     
     private let userRepository : UserRepository
     
@@ -21,6 +21,12 @@ class UserViewModel: ObservableObject {
     }
     
     func fetchUsers() {
-        self.users = userRepository.fetchUsers()
+        let result = userRepository.fetchUsers()
+        switch result {
+        case .success(let users) :
+            self.users = users
+        case .failure(let error) :
+            self.errorMessage = error.localizedDescription
+        }
     }
 }

@@ -12,7 +12,11 @@ struct wk2App: App {
     var body: some Scene {
         WindowGroup {
             UserListView()
-                .environmentObject(UserViewModel(userRepository: MockRepository()))
+                .environmentObject(UserViewModel(userRepository: makeUseOfMockRepository()))
         }
+    }
+    
+    func makeUseOfMockRepository() -> UserRepository{
+        return MockRepository()
     }
 }

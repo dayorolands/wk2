@@ -9,7 +9,7 @@ import Foundation
 
 //Mock implementation of the repository
 class MockRepository : UserRepository {
-    func fetchUsers() -> [User] {
+    func fetchUsers() -> Result<[User], Error> {
         let sampleJsonObject = """
         [
             { "id": 1, "name":"Munachi Ernest Eze" },
@@ -21,7 +21,11 @@ class MockRepository : UserRepository {
         ]
         """
         let data = Data(sampleJsonObject.utf8)
-        let users = try! JSONDecoder().decode([User].self, from: data)
-        return users
+        do {
+            let users = try JSONDecoder().decode([User].self, from: data)
+            return .success(users)
+        } catch {
+            return .failure(error)
+        }
     }
 }

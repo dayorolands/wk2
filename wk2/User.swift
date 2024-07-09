@@ -7,7 +7,8 @@
 
 import Foundation
 
+//User model to identify who the users are
 struct User: Identifiable, Codable {
-    let id : Int
-    let name : String
+    let id : Int //the unique identifier for a user
+    let name : String //the name of a user
 }
