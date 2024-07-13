@@ -42,13 +42,11 @@ struct ContentView: View {
         }
         .background(Color(hue:0.656, saturation: 0.787, brightness: 0.354))
         .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-        .onAppear {
+        .task {
             do {
-                if(retrievedApiKeyFromKeyChain() == nil) {
-                    try storeApiKeyinKeyChain(apiKey: "da5abb47a65a01359f335fb852cd5ac5")
-                }
+                try await KeyConstants.loadApiKey()
             } catch {
-                print("Unable to store the api key")
+                print("The error from storing the key is \(error)")
             }
         }
     }

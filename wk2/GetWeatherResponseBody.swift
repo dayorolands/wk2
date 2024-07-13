@@ -41,7 +41,6 @@ struct GetWeatherResponseBody : Decodable {
     struct WindResponse: Decodable {
         var speed: Double
         var deg: Double
-        var gust: Double
     }
 }
 

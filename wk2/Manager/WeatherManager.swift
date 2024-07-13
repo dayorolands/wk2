@@ -20,7 +20,6 @@ class WeatherManager {
         let urlRequest = URLRequest(url: url)
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw WeatherError.invalidResponse }
-        
         do {
             let decodeResponse = try JSONDecoder().decode(GetWeatherResponseBody.self, from: data)
             return decodeResponse
@@ -37,7 +36,6 @@ func storeApiKeyinKeyChain(apiKey: String) throws {
         kSecValueData as String: apiKey.data(using: .utf8)!
     ]
     let status = SecItemAdd(keychainQuery as CFDictionary, nil)
-    assert(status == errSecSuccess, "Failed to store API key in keychain")
 }
 
 func retrievedApiKeyFromKeyChain() -> String? {
