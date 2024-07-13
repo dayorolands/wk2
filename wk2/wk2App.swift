@@ -11,12 +11,7 @@ import SwiftUI
 struct wk2App: App {
     var body: some Scene {
         WindowGroup {
-            UserListView()
-                .environmentObject(UserViewModel(userRepository: makeUseOfMockRepository()))
+            ContentView()
         }
-    }
-    
-    func makeUseOfMockRepository() -> UserRepository{
-        return MockRepository()
     }
 }
