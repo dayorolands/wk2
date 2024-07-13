@@ -51,3 +51,8 @@ enum WeatherError : Error {
     case invalidResponse
     case invalidData
 }
+
+enum ApiKeyError: Error {
+    case unableToStoreApiKey
+    case unableToFetchApiKey
+}

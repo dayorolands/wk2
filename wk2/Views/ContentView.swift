@@ -21,9 +21,9 @@ struct ContentView: View {
                         .task {
                             do {
                                 weatherResponse = try await weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
-                                print("The response is \(String(describing: weatherResponse))")
+                                print("The response is : \(String(describing: weatherResponse))")
                             }  catch WeatherError.invalidURL {
-                                print("Invalid URL")
+                                print("Invalid URL detected")
                             } catch WeatherError.invalidData {
                                 print("Could not parse data from server, please try again.")
                             } catch {
@@ -42,6 +42,15 @@ struct ContentView: View {
         }
         .background(Color(hue:0.656, saturation: 0.787, brightness: 0.354))
         .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        .onAppear {
+            do {
+                if(retrievedApiKeyFromKeyChain() == nil) {
+                    try storeApiKeyinKeyChain(apiKey: "da5abb47a65a01359f335fb852cd5ac5")
+                }
+            } catch {
+                print("Unable to store the api key")
+            }
+        }
     }
 }
 
