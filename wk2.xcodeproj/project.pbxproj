@@ -112,6 +112,7 @@
 				8EBA41472C3DA85100FA3F6D /* Preview Content */,
 				8E4C3D082C425973008A39A1 /* GetWeatherResponseBody.swift */,
 				8E4C3D122C4260C3008A39A1 /* Extensions.swift */,
+				8E4C3D172C42C440008A39A1 /* APIKey.json */,
 			);
 			path = wk2;
 			sourceTree = "<group>";
@@ -122,7 +123,6 @@
 				8EBA41482C3DA85100FA3F6D /* Preview Assets.xcassets */,
 				8E4C3D0C2C425E6D008A39A1 /* ModelData.swift */,
 				8E4C3D102C425FA6008A39A1 /* weatherData.json */,
-				8E4C3D172C42C440008A39A1 /* APIKey.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
