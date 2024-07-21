@@ -19,7 +19,7 @@ struct WeatherView: View {
                         .fontWeight(.light)
                 }
                 .padding()
-                .frame(maxWidth: .infinity, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Spacer()
                 
@@ -35,7 +35,7 @@ struct WeatherView: View {
                         Spacer()
                         
                         Text(weather.main.feels_like.roundDouble() + "°")
-                            .font(.system(size: 100))
+                            .font(.system(size: 80))
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                             .padding()
                     }
